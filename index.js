@@ -43,6 +43,11 @@ var ChromeBrowser = function (baseBrowserDecorator, args) {
       '--disable-device-discovery-notifications'
     ].concat(flags, [url])
   }
+  if (args.binPath) {
+    this._getCommand = function() {
+      return args.binPath;
+    }
+  }
 }
 
 // Return location of chrome.exe file for a given Chrome directory (available: "Chrome", "Chrome SxS").
